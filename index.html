@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Nuestro Rinconcito 🐻🐰</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+  <link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#f2849e" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Rinconcito" />
+</head>
+<body>
+  <main id="app">
+    <!-- Pantalla Principal -->
+    <section id="pantalla-inicio" class="pantalla activa">
+      <div class="marco-titulo">
+        <p class="subtitulo">Una aventura para Osito y Conejita</p>
+        <h1>Nuestro Rinconcito</h1>
+        <div class="iconos-pareja">🐻 ❤️ 🐰</div>
+      </div>
+
+      <!-- Selector de personaje jugable -->
+      <div class="selector-personaje">
+        <p class="titulo-selector">¿Con quién quieres jugar?</p>
+        <div class="opciones-personaje">
+          <button type="button" class="btn-personaje activo" data-personaje="osito">
+            <span class="emoji-personaje">🐻</span>
+            <span>Osito</span>
+          </button>
+          <button type="button" class="btn-personaje" data-personaje="conejita">
+            <span class="emoji-personaje">🐰</span>
+            <span>Conejita</span>
+          </button>
+        </div>
+      </div>
+
+      <nav class="menu-principal">
+        <button id="btn-comenzar" class="btn-pixel primario">Comenzar</button>
+        <button id="btn-recuerdos" class="btn-pixel">Nuestros recuerdos</button>
+        <button id="btn-cartitas" class="btn-pixel">Cartitas</button>
+        <button id="btn-sonido" class="btn-pixel">Sonido: Activado</button>
+        <button id="btn-reiniciar" class="btn-pixel peligro">Reiniciar partida</button>
+      </nav>
+    </section>
+
+    <!-- Pantalla de Juego -->
+    <section id="pantalla-juego" class="pantalla">
+      <header class="hud-superior">
+        <span id="nombre-escenario">01. La casita de Osito</span>
+        <span id="contador-objetos">💌 0/1 📸 0/11</span>
+        <button id="btn-menu" class="btn-mini">Menú</button>
+      </header>
+
+      <div class="contenedor-canvas">
+        <canvas id="juego-canvas" width="320" height="400"></canvas>
+        <div id="aviso-accion" class="oculto">Pulsa A para interactuar</div>
+      </div>
+
+      <!-- Controles táctiles para móvil -->
+      <div class="controles-movil">
+        <div class="cruceta">
+          <button type="button" class="btn-dir arriba" data-dir="arriba" aria-label="Arriba">▲</button>
+          <button type="button" class="btn-dir izquierda" data-dir="izquierda" aria-label="Izquierda">◀</button>
+          <div class="centro-cruceta"></div>
+          <button type="button" class="btn-dir derecha" data-dir="derecha" aria-label="Derecha">▶</button>
+          <button type="button" class="btn-dir abajo" data-dir="abajo" aria-label="Abajo">▼</button>
+        </div>
+
+        <button type="button" id="btn-accion" class="btn-accion" aria-label="Interactuar">A</button>
+      </div>
+    </section>
+
+    <!-- Modal para Cartas, Álbum de 11 Fotos, Minijuego y Dedicatoria -->
+    <div id="modal-overlay" class="modal-overlay oculto">
+      <div class="modal-caja">
+        <h2 id="modal-titulo">Título</h2>
+        <div id="modal-contenido" class="modal-contenido"></div>
+        <button type="button" id="btn-cerrar-modal" class="btn-pixel primario">Cerrar</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/controles.js"></script>
+  <script src="js/animaciones.js"></script>
+  <script src="js/sonido.js"></script>
+  <script src="js/personajes.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js").catch(() => {});
+    });
+  }
+</script>
+</body>
+</html>

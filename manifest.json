@@ -1,0 +1,23 @@
+{
+  "name": "Nuestro Rinconcito",
+  "short_name": "Rinconcito",
+  "description": "Una aventura cozy para Osito y Conejita",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1d1416",
+  "theme_color": "#f2849e",
+  "icons": [
+    {
+      "src": "assets/escenarios/pequeno_refugio.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "assets/escenarios/pequeno_refugio.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
